@@ -10,8 +10,8 @@ The most simple way to use VLEX:
 </head>
 <body>
     <div id="firefoxFix" style="width:400px; height:300px; border:1px solid #000">
-        <svg id="vlex" width="100%" height="100%" onload="VLEX(vlex)">
-            <circle r="100" vlex="cx:{$cX};cy:{$cY}"></circle>
+        <svg id="vlex" width="100%" height="100%" onload="VLEX(vlex)">	<!-- inline call -->
+            <circle r="100" vlex="cx:{$cX};cy:{$cY}"></circle>			<!-- use of the vlex attribute -->
         </svg>
     </div>
 </body>
