@@ -1,5 +1,16 @@
 ![logo](https://raw.githubusercontent.com/indus/VLEX/master/footage/logo.png)
 
+### About
+SVG is deemed to be the holy grail for graphics in resposive web design! But are they really?!
+
+Yes and No. Beeing "Scalable" let them appear perfectly sharp in any resolution. And the fact that they are based on vector definitions make them small when it comes to file-size.
+
+But when it comes situations where you want layout inside a SVG, its frustrating. Of course there is this 'viewbox' thing that can help sometimes, but most of the time makes you crazy. Some of the node-attribute can be set with percentages, but others only in user-units (e.g. polygons, paths) It is a bit like having a "position:absolute"-style on every node and then try to make the layout flow.
+
+VLEX is the attempt to overcome this SVG shortcomings. Its a damn small script (5.22KB with a lot of comments; 783 bytes (!) minified and gzipped) that allows - once added to the SVG - a declarative layout.
+
+The basic idea is to introduce a attribute "vlex" that holds a description with the micro logic to layout a node properly on a resize event. Have a look at the __Quickstart__ example where a circle is centered on stage with small effort and than go on to the other examples...
+
 ### Quickstart
 
 The most simple way to use VLEX:
@@ -42,6 +53,8 @@ The most simple way to use VLEX:
 1. [ellipse size](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/3_ellipse.html)
 1. [circle stroke](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/4_circleStrokeDash.html)
 
+None of the examples is usefull per se. If you are interested to vlex something usefull you should read the upcoming API or just the comented source code (almost equal size ;-).
+If you are interested in some background and futur meet me down at the end.
 
 ### Javasript-API
 
@@ -152,6 +165,13 @@ vlex="d:M100,{$cY} Q{max(100,$cX-200)},200 {$cX},{$cY}"
 d		<-- eval("M100,"+($.cY)+" Q"+(Math.max(100,$.cX-200))+",200 "+($.cX)+","+($.cY)+"") // M100,150 Q100,200 200,150 
 
 ```
+
+
+### more About
+
+You may ask what usecase I had in mind? My use case is to build cross-device UIs (especially for webmapping-apps). VLEX should make one definition work on fullHD screens, tablets and smartphones. A task for example is to shrink buttons, but keep them at a minimum of 40px and to reduce space between them.
+
+And I´m not the only one recognicing a need for such things http://lists.w3.org/Archives/Public/www-svg/2013Oct/0003.html. After reading this discussion I realized that probably not even the long-awaited SVG2 will have the layout possibilities I would wish.
 
 
 
