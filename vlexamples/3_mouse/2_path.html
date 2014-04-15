@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>VLEX</title>
+    <script src="../../vlex.min.js"></script>
+    <link href="../styles/examples.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="vlexContainer" >
+        <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" onload="VLEX(vlex, { onmousemove: true })">
+
+            <path class="vlexStroke" vlex="d:M100,{$cY}C{$mX/2+100},{$cY},{$mX/2+100},{$mY},{$mX},{$mY}"></path>
+
+            <desc id="desc">
+                VLEXAMPLE - MOUSE 2
+
+                <code>vlex="d:M100,{$cY}C{$mX/2+100},{$cY},{$mX/2+100},{$mY},{$mX},{$mY}"</code>
+
+                - the gray path should connect a fixed point on the left with the mouse pointer
+            </desc>
+
+            <g class="ruler">
+                <line y1="0" vlex="x1:{$mX};x2:{$mX};y2:{$y}"></line>
+                <line x1="0" vlex="x2:{$x};y1:{$mY};y2:{$mY}"></line>
+                <line x1="0" vlex="x2:{$x};y1:{$cY};y2:{$cY}"></line>
+                <line x1="100" x2="100" y1="0" vlex="y2:{$y}"></line>
+            </g>
+
+        </svg>
+    </div>
+    <img id="logo" src="../styles/logo.png" />
+    <img id="resize" src="../styles/resize.png" />
+    <pre id="pre">        
+    <script>
+        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
+    </script>
+     </pre>
+</body>
+</html>
