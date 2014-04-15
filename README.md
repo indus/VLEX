@@ -73,11 +73,11 @@ the return value of VLEXs main function is a update-function. Call it to trigger
 
 SVG-Nodes with a '__velx__' attribute are getting handeld on a VLEX update.
 
-The value of the '__vlex__' attribute is called '__vlexpression__' and consists of one or more '__property-descriptions__' seperated by '__;__'. '__Key__' and  '__value__' of a property description have to be seperated by a '__:__'. The key of a property description maps its evaluated value to the native SVG-attribute with the same name.
+The value of the '__vlex__' attribute is called '__vlexpression__' and consists of one or more '__property-descriptions__' seperated by a __semicolon__ '__;__'. '__Key__' and  '__value__' of a property description have to be seperated by a colon '__:__'. The key of a property description maps its evaluated value to the native SVG-attribute with the same name.
 
 The value of a property description can consist of one or more __strings__ and/or __eval-statements__ (inside curly braces '__{}__'). eval-statements get evaluated on update. All eval-statements and strings of a property description get concatenated to a single string that is passed to the native SVG attribute.
 
-The __dollarSign__ '__$__' gives access to predefined values. Userdefined values and functions can be assigned to '$' before or during an update. The property-accessor point '__$.prop__' gets added on the compilation of a vlexpression.
+The __dollar sign__ '__$__' gives access to predefined values. Userdefined values and functions can be assigned to '$' before or during an update. The property-accessor point '__$.prop__' gets added on the compilation of a vlexpression.
 
 All properties and functions of Javascripts '__Math__' are available just by calling theír name (e.g. 'min()','max()','PI',...)
 
