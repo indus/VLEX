@@ -1,7 +1,3 @@
-VLEX
-====
-
-Vector Layout Expressions
 ![logo](https://raw.githubusercontent.com/indus/VLEX/master/footage/logo.png)
 
 
