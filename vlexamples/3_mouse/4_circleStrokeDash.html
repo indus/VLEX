@@ -15,7 +15,7 @@
             <desc id="desc">
                 VLEXAMPLE - MOUSE 4
 
-                <code>vlex="cx:{$cX};cy:{$cY};rx:{min(abs($cX-$mX),200)};ry:{min(abs($cY-$mY),200)}"</code>
+                <code>vlex="cx:{$cX};cy:{$cY};stroke-dasharray:{$l = PI*200*2};stroke-dashoffset:{$l-$l*$mX/$x}"</code>
 
                 - the gray arc stroke should flow arround a 200px circle centered on stage
                 - the mouse x-position should determin its angle
