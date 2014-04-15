@@ -42,8 +42,6 @@
         <circle r="100" vlex="cx:{$cX};cy:{$cY}"></circle>
         <circle r="200" vlex="cx:{$cX};cy:{$cY}"></circle>
     </g>
-
-	<text x="200" vlex="y:{$y-20}" style="font-family:'Courier New', Arial;">VLEXAMPLE - BASIC 3 as pure SVG</text>
 	
 </svg>
 

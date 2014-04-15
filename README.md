@@ -43,15 +43,16 @@ The most simple way to use VLEX:
 
 #### 2. Advanced
 1. [pure SVG](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/1_pureSVG.svg)
-2. [custom variable](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/2_customVar.html)
-3. [custom function](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/3_customFunc.html)
-4. [custom trigger](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/4_customTrigger.html)
+2. [external SVG via object](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/2_externalSVG.html)
+3. [custom variable](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/3_customVar.html)
+4. [custom function](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/4_customFunc.html)
+5. [custom trigger](http://rawgit.com/indus/VLEX/master/vlexamples/2_advanced/5_customTrigger.html)
 
 #### 3. Mouse
 1. [circle under mouse](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/1_circle.html)
-1. [path end under mouse](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/2_path.html)
-1. [ellipse size](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/3_ellipse.html)
-1. [circle stroke](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/4_circleStrokeDash.html)
+2. [path end under mouse](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/2_path.html)
+3. [ellipse size](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/3_ellipse.html)
+4. [circle stroke](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/4_circleStrokeDash.html)
 
 None of these examples is usefull per se. If you are interested to vlex something usefull, you should read the upcoming API or just the comented source code (almost equal size ;-).
 If you are interested in some backgrounds, have a look down at the end of this page.

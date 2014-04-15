@@ -10,20 +10,20 @@
         function init() {
 
             // get VLEX´s update function
-            var update = VLEX(vlex, { onresize: false })
+            var updateVLEX = VLEX(vlex, { onresize: false })
 
             var i = 0
 
-            var timeUpdate = function () {
+            var updateTime = function () {
                 i = ++i % 60;
                 // update the custom variable
                 VLEX.$.perc = i / 60;
                 // call VLEX´s update function
-                update();
-                setTimeout(timeUpdate, 1000);
+                updateVLEX();
+                setTimeout(updateTime, 1000);
             }
 
-            timeUpdate();
+            updateTime();
         }
 
     </script>
@@ -37,9 +37,9 @@
             <!-- VLEXAMPLE -->
 
             <desc id="desc">
-                VLEXAMPLE - ADVANCED 4
+                VLEXAMPLE - ADVANCED 5
 
-                <code>vlex="r:{$r=max(100,min(200,$y/4,$x/4))};cx:{$cX};cy:{$cY};stroke-dasharray:{$l = PI*$r*2};stroke-dashoffset:{$l-$l*$perc}""</code>
+                <code>vlex="r:{$r=max(100,min(200,$y/4,$x/4))};cx:{$cX};cy:{$cY};stroke-dasharray:{$l = PI*$r*2};stroke-dashoffset:{$l-$l*$perc}"</code>
 
                 - VLEX´s update function is called from a custom user-defined timer
                 - the custom user-defined $perc variable is updated in the timer
