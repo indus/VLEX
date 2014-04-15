@@ -2,5 +2,9 @@ VLEX
 ====
 
 Vector Layout Expressions
+![logo](https://github.com/indus/VLEX/loho.png)
 
-http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/1_circle.html
+
+VLEXamples
+
+ (http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/1_circle.html)
