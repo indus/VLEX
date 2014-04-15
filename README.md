@@ -7,7 +7,7 @@ Yes and No. Beeing "scalable" let them appear perfectly sharp in any resolution.
 
 But in situations, where you want layout inside a SVG, it is quite frustrating. Of course, there is this 'viewbox' thing, that can help sometimes, but most of the time drives you crazy. Some of the node attributes can be set with percentages, but others only in user-units (e.g. polygons, paths). It is a bit like having a "position:absolute"-style on every DOM-node and then try to make the layout flow.
 
-VLEX is the attempt to overcome this SVG shortcomings. It is a damn small script (5.22KB with a lot of comments; 783 bytes (!) minified and gzipped) that allows, once added to the SVG, a declarative layout.
+VLEX is the attempt to overcome this SVG shortcomings. It is a damn small script (5.1KB with a lot of comments; 771 bytes (!) minified and gzipped) that allows, once added to the SVG, a declarative layout.
 
 The basic idea is to introduce an attribute "vlex", that holds a description with all the micro logic inside to layout a node properly on a resize event. Have a look at the __Quickstart__ example, where a circle is centered on stage with small effort and than go on to the other vlexamples...
 

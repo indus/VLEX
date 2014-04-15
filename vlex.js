@@ -1,5 +1,5 @@
 ﻿/*!
- * VLEX Vector Layout Expressions v0.1
+ * VLEX Vector Layout Expressions v0.2
  *
  * Copyright 2014 Stefan Keim (indus)
  * Released under the MIT license
@@ -12,24 +12,26 @@
 
 var VLEX = (function (window) {
 
+    var el, nodes, $ = {};
+
     // the main function of VLEX 
-    var VLEX = function VLEX(el, options) {
+    var VLEX = function VLEX(element, options) {
 
         // remove old events
         window.removeEventListener('resize', VLEX.onresize);
         window.removeEventListener('mousemove', VLEX.onmousemove);
 
         // setting the element to 'null' kills VLEX
-        if (el === null) return;
+        if (element === null) return;
 
         // get a proper new element
-        el = VLEX.el = (typeof el == 'string' || el instanceof String) ? document.getElementById(el) : el || document.body || document;
+        el = (typeof element == 'string' || element instanceof String) ? document.getElementById(element) : element || document.body || document;
 
         // no 'options' is no option      
         options = options || {};
 
         // get the $ variables map
-        VLEX.$ = options.$ || VLEX.$;
+        $ = options.$ || $;
 
         // 'updateOnResize' is default behaviour
         if (!(options.onresize === false)) {
@@ -37,16 +39,16 @@ var VLEX = (function (window) {
         }
 
         // set x,y default values
-        VLEX.$.x = VLEX.$.x || VLEX.el.clientWidth || VLEX.el.parentNode.clientWidth;
-        VLEX.$.y = VLEX.$.y || VLEX.el.clientHeight || VLEX.el.parentNode.clientHeight;
-        VLEX.$.cX = VLEX.$.x / 2;
-        VLEX.$.cY = VLEX.$.y / 2;
+        $.x = $.x || el.clientWidth || el.parentNode.clientWidth;
+        $.y = $.y || el.clientHeight || el.parentNode.clientHeight;
+        $.cX = $.x / 2;
+        $.cY = $.y / 2;
 
         // 'updateOnMouseMove' is optional behaviour
         if (options.onmousemove) {
             window.addEventListener('mousemove', VLEX.onmousemove);
             // default values will be overitten on first mousemove-Event
-            VLEX.$.mX = VLEX.$.mY = -99999;
+            $.mX = $.mY = -99999;
         }
 
         // first update
@@ -56,14 +58,16 @@ var VLEX = (function (window) {
         return VLEX.update;
     }
 
+    VLEX.$ = $;
+
     // window.onResize handler
     VLEX.onresize = function (evt) {
 
         // update x,y,cX,cY on $;
-        VLEX.$.x = VLEX.el.clientWidth || VLEX.el.parentNode.clientWidth;
-        VLEX.$.y = VLEX.el.clientHeight || VLEX.el.parentNode.clientHeight;
-        VLEX.$.cX = VLEX.$.x / 2;
-        VLEX.$.cY = VLEX.$.y / 2;
+        $.x = el.clientWidth || el.parentNode.clientWidth;
+        $.y = el.clientHeight || el.parentNode.clientHeight;
+        $.cX = $.x / 2;
+        $.cY = $.y / 2;
 
         VLEX.update();
     }
@@ -72,8 +76,8 @@ var VLEX = (function (window) {
     VLEX.onmousemove = function (evt) {
 
         // update mX,mY on $;
-        VLEX.$.mX = evt.pageX - VLEX.el.parentNode.offsetLeft;
-        VLEX.$.mY = evt.pageY - VLEX.el.parentNode.offsetTop;
+        $.mX = evt.pageX - el.parentNode.offsetLeft;
+        $.mY = evt.pageY - el.parentNode.offsetTop;
 
         VLEX.update();
     }
@@ -97,24 +101,25 @@ var VLEX = (function (window) {
 
     // the update function of VLEX
     VLEX.update = function ($, force) {
-        var el = VLEX.el, $ = $ || VLEX.$;
+        var $ = $ || VLEX.$, vlexps;
+        
         if (!el)
             return;
 
-        // get all nodes with 'vlex' attribute
-        var nodeList = el.querySelectorAll('[vlex]'), vlexps;
+        // get all nodes with 'vlex' attribute and cache them
+        nodes = (nodes && !force) ? nodes : el.querySelectorAll('[vlex]');
 
-        for (var i = 0, l = nodeList.length; i < l; i++) {
-            var node = $.$ = nodeList[i];
+        for (var i = 0, l = nodes.length; i < l; i++) {
+            var node = $.$ = nodes[i];
 
             // if not done allready or if forced to: compile the 'vlex' attribute to a string that can be passed to eval
-            if (!node.vlexps || force) {
+            if (!node.vlex || force) {
 
                 // split into attribute partes
                 var attr = node.getAttribute('vlex').split(';'), key, val;
 
                 // cache the compilation at the node
-                node.vlexps = {};
+                node.vlex = {};
 
                 for (var j = 0, m = attr.length; j < m; j++) {
 
@@ -143,21 +148,18 @@ var VLEX = (function (window) {
                             val[k] = (expr = regExp_expBody.exec(val[k])) ? '(' + expr[1] + ')' : '"' + val[k] + '"';
 
                         // make them concatenate on eval
-                        node.vlexps[key] = val.join('+');
+                        node.vlex[key] = val.join('+');
                     }
                 }
             }
 
 
-            for (var attr in node.vlexps)
+            for (var attr in node.vlex)
                 // set ´nodes attributes to the evaluated expressions
-                node.setAttribute(attr, eval(node.vlexps[attr]));
+                node.setAttribute(attr, eval(node.vlex[attr]));
 
         }
     }
-
-    // init the $ variables map;
-    VLEX.$ = {};
 
     // handout the VLEX main function;
     return VLEX;
