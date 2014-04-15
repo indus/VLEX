@@ -83,7 +83,7 @@ the return value of VLEXs main function is a update-function. Call it to trigger
 
 ### DOM-API (Vlexpressions)
 
-##### vlex="&lt;prop1:&lt;string&gt;&lt;{flexpression1}&gt;&lt;string&gt;...;&gt;&lt;prop2:...;"
+##### vlex="&lt;prop1:&lt;string&gt;&lt;{flexpression1}&gt;&lt;string&gt;...;&gt;&lt;prop2:...;&gt;"
 
 SVG-Nodes with a '__velx__' attribute are getting handeld on a VLEX update.
 
@@ -99,7 +99,7 @@ All properties and functions of Javascripts '__Math__' are available just by cal
 :-- | :-- | :--
 | force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them recompiled (e.g. after changing a vlexpression or after adding an new node with a vlexpression)|
 
-##### $
+##### DollarSign $
 
 | $param   | Default  | Description  |
 :-- | :-- | :--
