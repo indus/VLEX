@@ -29,7 +29,7 @@ The most simple way to use VLEX:
 </html>
 ```
 
-(the surrounding div is necessary to fix firefox bug [#874811](https://bugzilla.mozilla.org/show_bug.cgi?id=874811))
+(a surrounding div is necessary to fix firefox bug [#874811](https://bugzilla.mozilla.org/show_bug.cgi?id=874811))
 
 ### VLEXamples
 #### 1. Basic
