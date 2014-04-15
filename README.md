@@ -43,7 +43,7 @@ The most simple way to use VLEX:
 1. [circle stroke](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/4_circleStrokeDash.html)
 
 
-### API
+### Javasript-API
 
 ##### var updateFN = VLEX(element, &lt;options&gt;)
 the main function of VLEX. Call it to init VLEX.
@@ -67,12 +67,18 @@ the return value of VLEXs main function is a update-function. Call it to trigger
 :-- | :-- | :--
 | force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpressions)|
 
+### DOM-API (Vlexpressions)
 
 ##### vlex="&lt;prop1:&lt;string&gt;&lt;{flexpression1}&gt;&lt;string&gt;...;&gt;&lt;prop2:...;"
+
 SVG-Nodes with a 'velx' attribute are getting handeld on a VLEX update.
+
 The value of the 'vlex' attribute is called 'vlexpression' and consists of one or more property descriptions seperated by ';'. Between the key and the value of a property description has to be a ':'. The key of a property description maps its evaluated and value to the native SVG-attribute with the same name.
+
 The value of a property description can consist of one or more strings and/or eval-statements (inside curly braces). eval-statements get evaluated on update. All eval-statements and strings of a property description get concatenated to a single string that is passed to the native SVG attribute.
+
 The dollarSign '$' gives access to predefined values. Userdefined values and functions can be assigned to '$' before or during an update. The property-accessor point '$.prop' gets added on the compilation of a vlexpression.
+
 All properties and functions of Javascripts 'Math' are available just py calling theír name (e.g. 'min()','max()','PI',...)
 
 | Parameter   | Type        | Description  |
@@ -88,7 +94,7 @@ All properties and functions of Javascripts 'Math' are available just py calling
 | $mX, $mY     | -99999 | the mouseposition; gets updated if onmouse is set *true* in options |
 
 
-##### Vlexpression Compilation Examples
+##### Compilation Examples
 
 ```javascript
 // for element.clientWidth == 400 and element.clientheight == 300
