@@ -74,11 +74,12 @@ the main function of VLEX. Call it to init VLEX.
 | $				| Object	| undefined	|  properties of *$* are available in vlexpressions via dollar-sign|
 
 
-##### updateFN(&lt;force&gt;)
+##### updateFN(&lt;$&gt;,&lt;force&gt;)
 the return value of VLEXs main function is a update-function. Call it to trigger an update.
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
+| $     | Object | this overwrites the old '$'. Its does not merge. Watch out to deliver the default props $x, $y, $cX, $cY if you need them in you vlexpressions |
 | force     | Boolean | the vlexpressions are cached. So you have to pass *true*, if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpression)|
 
 ### DOM-API (Vlexpressions)
@@ -94,10 +95,6 @@ The value of a property description can consist of one or more __strings__ and/o
 The __dollar sign__ '__$__' gives access to predefined values. Userdefined values and functions can be assigned to '$' before or during an update. The property-accessor point '__$.prop__' gets added on the compilation of a vlexpression.
 
 All properties and functions of Javascripts '__Math__' are available just by calling their name (e.g. 'min()','max()','PI',...)
-
-| Parameter   | Type        | Description  |
-:-- | :-- | :--
-| force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them recompiled (e.g. after changing a vlexpression or after adding an new node with a vlexpression)|
 
 ##### DollarSign $
 
