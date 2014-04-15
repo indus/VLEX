@@ -75,7 +75,7 @@ the main function of VLEX. Call it to init VLEX.
 
 
 ##### updateFN(&lt;$&gt;,&lt;force&gt;)
-the return value of VLEXs main function is a update-function. Call it to trigger an update.
+the return value of VLEXs main function is a update-function. Call it to trigger an update manually.
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
