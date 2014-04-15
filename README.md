@@ -45,10 +45,10 @@ The most simple way to use VLEX:
 
 ### API
 
-VLEX(element, <<options>>)
+##### VLEX(element, &lt;options&gt;)
 
 | Parameter   | Type        | Description  |
-:-- | :--: | --:
+:-- | :-- | :--
 | element     | DOM-Node, ID-String or null | Pass a DOM-Node or its ID-String to start VLEX. Pass null to stop VLEX |
 | options     | Object      |  pass a options object to change VLEXs behaviour |
 
