@@ -48,5 +48,8 @@ body,
   margin: 0;
 }
 #pre code {
-  font-weight: bold;
+  background-color:#2b2b2b;
+  padding:5px 20px;
+  color:#fff;
+  border-radius:4px;
 }
