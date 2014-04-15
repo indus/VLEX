@@ -46,7 +46,7 @@ The most simple way to use VLEX:
 ### API
 
 ##### var updateFN = VLEX(element, &lt;options&gt;)
-the main function of VLEX. Call it to init VLEX
+the main function of VLEX. Call it to init VLEX.
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
@@ -54,14 +54,14 @@ the main function of VLEX. Call it to init VLEX
 | options     | Object      |  pass a options object to change VLEXs behaviour |
 
 | Option   | Type        | Default  | Description  |
-:-- | :-- | :--
+:-- | :-- | :-- | :--
 | onresize		| Boolean	| true		|  auto-update on resize-event |
 | onmousemove	| Boolean	| false		|  auto-update on mousemove-event  |
 | $				| Object	| undefined	|  properties of *$* are available in vlexpressions via dollar-sign|
 
 
 ##### updateFN(&lt;force&gt;)
-the main function of VLEX returns a update-function. Call it to trigger a update
+the return value of VLEXs main function is a update-function. Call it to trigger an update.
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
@@ -78,6 +78,8 @@ All properties and functions of Javascripts 'Math' are available just py calling
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
 | force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them recompiled (e.g. after changing a vlexpressions or after adding an new node with a vlexpressions)|
+
+##### $
 
 | $param   | Default  | Description  |
 :-- | :-- | :--
