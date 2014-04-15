@@ -3,13 +3,13 @@
 ### About
 SVG is deemed to be the holy grail for graphics in resposive web design! But are they really?!
 
-Yes and No. Beeing "Scalable" let them appear perfectly sharp in any resolution. And the fact that they are based on vector definitions make them small when it comes to file-size.
+Yes and No. Beeing "scalable" let them appear perfectly sharp in any resolution. And the fact, that they are based on vector definitions, make them small when it comes to file-size.
 
-But in situations where you want layout inside a SVG, its frustrating. Of course there is this 'viewbox' thing that can help sometimes, but most of the time makes you crazy. Some of the node-attributes can be set with percentages, but others only in user-units (e.g. polygons, paths). It is a bit like having a "position:absolute"-style on every DOM-node and then try to make the layout flow.
+But in situations, where you want layout inside a SVG, it is quite frustrating. Of course, there is this 'viewbox' thing, that can help sometimes, but most of the time drives you crazy. Some of the node attributes can be set with percentages, but others only in user-units (e.g. polygons, paths). It is a bit like having a "position:absolute"-style on every DOM-node and then try to make the layout flow.
 
-VLEX is the attempt to overcome this SVG shortcomings. Its a damn small script (5.22KB with a lot of comments; 783 bytes (!) minified and gzipped) that allows - once added to the SVG - a declarative layout.
+VLEX is the attempt to overcome this SVG shortcomings. It is a damn small script (5.22KB with a lot of comments; 783 bytes (!) minified and gzipped) that allows, once added to the SVG, a declarative layout.
 
-The basic idea is to introduce a attribute "vlex" that holds a description with all the micro logic inside to layout a node properly on a resize event. Have a look at the __Quickstart__ example where a circle is centered on stage with small effort and than go on to the other examples...
+The basic idea is to introduce an attribute "vlex", that holds a description with all the micro logic inside to layout a node properly on a resize event. Have a look at the __Quickstart__ example, where a circle is centered on stage with small effort and than go on to the other vlexamples...
 
 ### Quickstart
 
@@ -92,7 +92,7 @@ The value of a property description can consist of one or more __strings__ and/o
 
 The __dollar sign__ '__$__' gives access to predefined values. Userdefined values and functions can be assigned to '$' before or during an update. The property-accessor point '__$.prop__' gets added on the compilation of a vlexpression.
 
-All properties and functions of Javascripts '__Math__' are available just by calling theír name (e.g. 'min()','max()','PI',...)
+All properties and functions of Javascripts '__Math__' are available just by calling theï¿½r name (e.g. 'min()','max()','PI',...)
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
@@ -171,7 +171,7 @@ d		<-- eval("M100,"+($.cY)+" Q"+(Math.max(100,$.cX-200))+",200 "+($.cX)+","+($.c
 
 You may ask what usecase I had in mind for VLEX? In general it is to build cross-device UIs (especially for webmapping-apps). VLEX should make a single SVG UI overlay work on fullHD screens, tablets and smartphones. A task for example is to shrink buttons and to reduce space between them, but keep them at a minimum of 40px and avoid overlaps.
 
-And I´m not the only one recognizing a need for tese things (http://lists.w3.org/Archives/Public/www-svg/2013Oct/0003.html). After reading this discussion I realized that probably not even the long-awaited SVG2 will have the layout possibilities I desire.
+And Iï¿½m not the only one recognizing a need for tese things (http://lists.w3.org/Archives/Public/www-svg/2013Oct/0003.html). After reading this discussion I realized that probably not even the long-awaited SVG2 will have the layout possibilities I desire.
 
 
 
