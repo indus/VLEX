@@ -32,7 +32,9 @@
     <div id="vlexContainer">
         <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 
+            <!-- VLEXAMPLE -->
             <circle class="vlexStroke" vlex="r:{$r=max(100,min(200,$y/4,$x/4))};cx:{$cX};cy:{$cY};stroke-dasharray:{$l = PI*$r*2};stroke-dashoffset:{$l-$l*$perc}"></circle>
+            <!-- VLEXAMPLE -->
 
             <desc id="desc">
                 VLEXAMPLE - ADVANCED 4
@@ -56,9 +58,9 @@
     <img id="logo" src="../styles/logo.png" />
     <img id="resize" src="../styles/resize.png" />
     <pre id="pre">        
-    <script>
-        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
-    </script>
+        <script>
+            document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML || document.getElementById("desc").textContent;
+        </script>
      </pre>
 </body>
 </html>

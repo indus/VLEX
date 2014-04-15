@@ -10,10 +10,12 @@
     <div id="vlexContainer">
         <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" onload="VLEX(vlex)">
 
+            <!-- VLEXAMPLE -->
             <path id="house" class="vlexFill" vlex="d:M200,400V200l100-100l100,100V{max($y-110,370)}h-30v-100h-50V{max($y-110,370)}H200z M280,230h-50v50h50V230z" />
             <polygon id="truck" class="vlexFill" vlex="points: 595,{max($y-850,-370)+542} 595,{max($y-850,-370)+684} 580,{max($y-850,-370)+684} 580,{max($y-850,-370)+602} 520,{max($y-850,-370)+602} 460,{max($y-850,-370)+671} 460,{max($y-850,-370)+693} 450,{max($y-850,-370)+693} 450,{max($y-850,-370)+720} {max($x-1024+780,780)},{max($y-850,-370)+720} {max($x-1024+800,800)},{max($y-850,-370)+700} {max($x-1024+800,800)},{max($y-850,-370)+542} " />
             <circle id="tire1" class="vlexFill" cx="518" vlex="cy:{max(max($y-850,-370)+717,350)}" r="22" />
             <circle id="tire2" class="vlexFill" vlex="cy:{max(max($y-850,-370)+717,350)};cx:{max($x-300,730)}" r="22" />
+            <!-- VLEXAMPLE -->
 
             <desc id="desc">
                 VLEXAMPLE - BASIC 7
@@ -33,9 +35,9 @@
     <img id="logo" src="../styles/logo.png" />
     <img id="resize" src="../styles/resize.png" />
     <pre id="pre">        
-    <script>
-        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
-    </script>
+        <script>
+            document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML || document.getElementById("desc").textContent;
+        </script>
      </pre>
 </body>
 </html>

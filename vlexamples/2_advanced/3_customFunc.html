@@ -12,7 +12,7 @@
 
             var pointArr = [], xDelta = (x - 200) / zigZagCount;
 
-            for (var i = 0,x_; i <= zigZagCount; i++) {
+            for (var i = 0, x_; i <= zigZagCount; i++) {
                 x_ = 100 + i * xDelta
                 pointArr.push(x_, cY - 100, x_, cY + 100)
             }
@@ -22,10 +22,12 @@
     </script>
 </head>
 <body>
-    <div id="vlexContainer" >
+    <div id="vlexContainer">
         <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" onload="VLEX(vlex)">
 
+            <!-- VLEXAMPLE -->
             <polyline class="vlexStroke" vlex="points:{$zigZag($x,$cY,10)}"></polyline>
+            <!-- VLEXAMPLE -->
 
             <desc id="desc">
                 VLEXAMPLE - ADVANCED 3
@@ -48,9 +50,9 @@
     <img id="logo" src="../styles/logo.png" />
     <img id="resize" src="../styles/resize.png" />
     <pre id="pre">        
-    <script>
-        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
-    </script>
+        <script>
+            document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML || document.getElementById("desc").textContent;
+        </script>
      </pre>
 </body>
 </html>

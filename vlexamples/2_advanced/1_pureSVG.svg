@@ -19,18 +19,20 @@
 		</style>
 	</defs>
 	<desc>
-VLEXAMPLE - ADVANCED 1
+    VLEXAMPLE - ADVANCED 1
 
-<code>vlex="cx:{$cX};cy:{$cY};r:{max(100,min(200,$y/4,$x/4))}"</code>
+    <code>vlex="cx:{$cX};cy:{$cY};r:{max(100,min(200,$y/4,$x/4))}"</code>
 
-- the gray circle should be centered at stage
-- its diameter should be half of stages minor dimesion
-- its radius should be greater then 100px and less then 200px
+    - the gray circle should be centered at stage
+    - its diameter should be half of stages minor dimesion
+    - its radius should be greater then 100px and less then 200px
 	</desc>
 
-	<circle class="vlexFill" vlex="cx:{$cX};cy:{$cY};r:{max(100,min(200,$y/4,$x/4))}"></circle>
+  <!-- VLEXAMPLE -->
+  <circle class="vlexFill" vlex="cx:{$cX};cy:{$cY};r:{max(100,min(200,$y/4,$x/4))}"></circle>
+  <!-- VLEXAMPLE -->
 
-    <g class="ruler">
+  <g class="ruler">
         <line y1="0" vlex="x1:{$cX};x2:{$cX};y2:{$y}"></line>
         <line x1="0" vlex="x2:{$x};y1:{$cY};y2:{$cY}"></line>
         <line x1="0" vlex="x2:{$x};y1:{$cY-$y/4};y2:{$cY-$y/4}"></line>
