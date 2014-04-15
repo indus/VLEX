@@ -1,5 +1,24 @@
 ![logo](https://raw.githubusercontent.com/indus/VLEX/master/footage/logo.png)
 
+### Quickstart
+
+The most simple way to use VLEX:
+```html
+<html>
+<head>
+    <script src="path/to/vlex.js"></script>
+</head>
+<body>
+    <div id="firefoxFix" style="width:400px; height:300px; border:1px solid #000">
+        <svg id="vlex" width="100%" height="100%" onload="VLEX(vlex)">
+            <circle r="100" vlex="cx:{$cX};cy:{$cY}"></circle>
+        </svg>
+    </div>
+</body>
+</html>
+```
+
+(the surrounding div is necessary to fix firefox bug [#874811](https://bugzilla.mozilla.org/show_bug.cgi?id=874811))
 
 ### VLEXamples
 #### 1. Basic
@@ -22,27 +41,6 @@
 1. [path end under mouse](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/2_path.html)
 1. [ellipse size](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/3_ellipse.html)
 1. [circle stroke](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/4_circleStrokeDash.html)
-
-
-### Quickstart
-
-The most simple way to use 
-```html
-<html>
-<head>
-    <script src="path/to/vlex.js"></script>
-</head>
-<body>
-    <div style="width:400px;height:300px;border:1px solid #000">
-        <svg id="vlex" width="100%" height="100%" onload="VLEX(vlex)">
-            <circle r="100" vlex="cx:{$cX};cy:{$cY}"></circle>
-        </svg>
-    </div>
-</body>
-</html>
-```
-
-the surrounding div is necessary to fix firefox bug [#874811](https://bugzilla.mozilla.org/show_bug.cgi?id=874811)
 
 
 ### API
