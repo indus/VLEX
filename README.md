@@ -86,7 +86,7 @@ the return value of VLEXs main function is a update-function. Call it to trigger
 
 ##### vlex="&lt;prop1:&lt;string&gt;&lt;{flexpression1}&gt;&lt;string&gt;...;&gt;&lt;prop2:...;&gt;"
 
-SVG-Nodes with a '__velx__' attribute are getting handeld on a VLEX update.
+SVG-Nodes with a '__vlex__' attribute are getting handeld on a VLEX update.
 
 The value of the '__vlex__' attribute is called '__vlexpression__' and consists of one or more '__property-descriptions__' seperated by a __semicolon__ '__;__'. '__Key__' and  '__value__' of a property description have to be seperated by a colon '__:__'. The key of a property description maps its evaluated value to the native SVG-attribute with the same name.
 
