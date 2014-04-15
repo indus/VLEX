@@ -45,11 +45,105 @@ The most simple way to use VLEX:
 
 ### API
 
-##### VLEX(element, &lt;options&gt;)
+##### var updateFN = VLEX(element, &lt;options&gt;)
+the main function of VLEX. Call it to init VLEX
 
 | Parameter   | Type        | Description  |
-:-- | :-- | :--
-| element     | DOM-Node, ID-String or null | Pass a DOM-Node or its ID-String to start VLEX. Pass null to stop VLEX |
+:-- | :- | :--
+| element     | DOM-Node, ID-String or null | Pass a DOM-Node or its ID-String to start VLEX. Pass *null* to stop VLEX |
 | options     | Object      |  pass a options object to change VLEXs behaviour |
+
+| Option   | Type        | Default  | Description  |
+:-- | :- | :--
+| onresize		| Boolean	| true		|  auto-update on resize-event |
+| onmousemove	| Boolean	| false		|  auto-update on mousemove-event  |
+| $				| Object	| undefined	|  properties of *$* are available in vlexpressions via dollar-sign|
+
+
+##### updateFN(&lt;force&gt;)
+the main function of VLEX returns a update-function. Call it to trigger a update
+
+| Parameter   | Type        | Description  |
+:-- | :- | :--
+| force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpressions)|
+
+
+##### vlex="&lt;prop1:&lt;string&gt;&lt;{flexpression1}&gt;&lt;string&gt;...;&gt;&lt;prop2:...;"
+SVG-Nodes with a 'velx' attribute are getting handeld on a VLEX update.
+The value of the 'vlex' attribute is called 'vlexpression' and consists of one or more property descriptions seperated by ';'. Between the key and the value of a property description has to be a ':'. The key of a property description maps its evaluated and value to the native SVG-attribute with the same name.
+The value of a property description can consist of one or more strings and/or eval-statements (inside curly braces). eval-statements get evaluated on update. All eval-statements and strings of a property description get concatenated to a single string that is passed to the native SVG attribute.
+The dollarSign '$' gives access to predefined values. Userdefined values and functions can be assigned to '$' before or during an update. The property-accessor point '$.prop' gets added on the compilation of a vlexpression.
+All properties and functions of Javascripts 'Math' are available just py calling theír name (e.g. 'min()','max()','PI',...)
+
+| Parameter   | Type        | Description  |
+:-- | :- | :--
+| force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them recompiled (e.g. after changing a vlexpressions or after adding an new node with a vlexpressions)|
+
+| $param   | Default  | Description  |
+:-- | :- | :--
+| $x,$y    | element.clientWidth, element.clientHeight | normaly the with/height of the outermost svg |
+| $cX,$cY      | $x/2, $y/2 | the horizontal/vertical center |
+| $mX, $mY     | -99999 | the mouseposition; gets updated if onmouse is set *true* in options |
+
+
+##### Vlexpression Compilation Examples
+
+```javascript
+// for element.clientWidth == 400 and element.clientheight == 300
+
+vlex="r:100"
+>>>
+r		<-- eval("100")
+
+vlex="r:{100}"
+>>>
+r		<-- eval(""+(100)+"" )
+
+vlex="r:{100*2}"
+>>>
+r		<-- eval(""+(100*2)+"" )
+
+vlex="r:{100*PI}"
+>>>
+r		<-- eval(""+(100*Math.PI)+"" )
+
+vlex="r:{min(100,90)}"
+>>>
+r		<-- eval(""+(Math.min(100,90))+"") // 90
+
+vlex="r:{$x/2}"
+>>>
+r		<-- eval(""+($.x/2)+"") // 200
+
+vlex="r:200;cx:{$cX};cy:{floor(2.3)*100}"
+>>>
+r		<-- eval("200") // 200 vlex.js:154
+cx		<-- eval(""+($.cX)+"") // 200 vlex.js:154
+cy		<-- eval(""+(Math.floor(2.3)*100)+"") // 200 
+
+vlex="r:{$custom = $x/4};cx:{$cX};cy:{$custom}"
+>>>
+r		<-- eval(""+($.custom = $.x/4)+"") // 100 vlex.js:154
+cx		<-- eval(""+($.cX)+"") // 200 vlex.js:154
+cy		<-- eval(""+($.custom)+"") // 100 
+
+vlex="points:0,100,{$cX},{$cY+100}"
+>>>
+points	<-- eval("0,100,"+($.cX)+","+($.cY+100)+"") // 0,100,200,250   
+
+vlex="points:{0},{100},{$cX},{$cY+100}"
+>>>
+points	<-- eval("0,100,"+($.cX)+","+($.cY+100)+"") // 0,100,200,250
+
+vlex="points:{[0,100,$cX,$cY+100].join(',')}"
+>>>
+points	<-- eval(""+([0,100,$.cX,$.cY+100].join(','))+"") // 0,100,200,250  // 0,100,200,250
+
+vlex="d:M100,{$cY} Q{max(100,$cX-200)},200 {$cX},{$cY}"
+>>>
+d		<-- eval("M100,"+($.cY)+" Q"+(Math.max(100,$.cX-200))+",200 "+($.cX)+","+($.cY)+"") // M100,150 Q100,200 200,150 
+
+```
+
 
 

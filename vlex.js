@@ -80,16 +80,16 @@ var VLEX = (function (window) {
 
 
     //find expression {} and select it
-    var regExp_expHead = /({.*?})/
+    var regExp_expHead = /({.*?})/;
 
     //find expression {} and select expression body
-    var regExp_expBody = /{(.*?)}/
+    var regExp_expBody = /{(.*?)}/;
 
     //find $ variables
-    var regExp_var = /\$([a-z0-9]*)/g
+    var regExp_var = /\$([a-z0-9]*)/g;
 
     // find carriage returns
-    var regExp_cr = /\r?\n|\r/g
+    var regExp_cr = /\r?\n|\r/g;
 
     // find Math properties like 'min','max','floor'
     var regExp_math = new RegExp('(' + Object.getOwnPropertyNames(Math).join('|') + ')', 'g')
@@ -124,7 +124,7 @@ var VLEX = (function (window) {
                     if (attr[j].length > 1) {
 
                         //get the key
-                        key = attr[j].shift().trim(),
+                        key = attr[j].shift().trim();
                         // get the value and undo the ':' split
                         val = attr[j].join(':')
                                 // remove carriage returns
@@ -143,7 +143,7 @@ var VLEX = (function (window) {
                             val[k] = (expr = regExp_expBody.exec(val[k])) ? '(' + expr[1] + ')' : '"' + val[k] + '"';
 
                         // make them concatenate on eval
-                        node.vlexps[key] = val.join('+')
+                        node.vlexps[key] = val.join('+');
                     }
                 }
             }
@@ -151,7 +151,7 @@ var VLEX = (function (window) {
 
             for (var attr in node.vlexps)
                 // set ´nodes attributes to the evaluated expressions
-                node.setAttribute(attr, eval(node.vlexps[attr]))
+                node.setAttribute(attr, eval(node.vlexps[attr]));
 
         }
     }
