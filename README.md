@@ -79,8 +79,8 @@ the return value of VLEXs main function is a update-function. Call it to trigger
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
-| $     | Object | this overwrites the old '$'. It does not merge. Watch out to deliver the default props $x, $y, $cX, $cY if you need them in you vlexpressions |
-| force     | Boolean | the vlexpressions are cached. So you have to pass *true*, if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpression)|
+| $     | Object | this overwrites the old '$'. New and old $ do not merge. Make sure you deliver the default props $x, $y, $cX, $cY if you need them in you vlexpressions |
+| force     | Boolean | vlexpressions are getting cached. You have to pass *true*, if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpression)|
 
 ### DOM-API (Vlexpressions)
 
