@@ -64,7 +64,7 @@ the main function of VLEX. Call it to init VLEX.
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
 | element     | DOM-Node, ID-String or null | Pass a DOM-Node or its ID-String to start VLEX. Pass *null* to stop VLEX |
-| options     | Object      |  pass a options object to change VLEXs behaviour |
+| options     | Object      |  Pass a options object to change VLEXs behaviour |
 
 | Option   | Type        | Default  | Description  |
 :-- | :-- | :-- | :--
@@ -78,7 +78,7 @@ the return value of VLEXs main function is a update-function. Call it to trigger
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
-| force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpressions)|
+| force     | Boolean | the vlexpressions are cached. So you have to pass *true*, if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpression)|
 
 ### DOM-API (Vlexpressions)
 
@@ -88,15 +88,15 @@ SVG-Nodes with a '__velx__' attribute are getting handeld on a VLEX update.
 
 The value of the '__vlex__' attribute is called '__vlexpression__' and consists of one or more '__property-descriptions__' seperated by a __semicolon__ '__;__'. '__Key__' and  '__value__' of a property description have to be seperated by a colon '__:__'. The key of a property description maps its evaluated value to the native SVG-attribute with the same name.
 
-The value of a property description can consist of one or more __strings__ and/or __eval-statements__ (inside __curly braces__ '__{}__'). eval-statements get evaluated on update. All eval-statements and strings of a property description get concatenated to a single string that is passed to the native SVG attribute.
+The value of a property description can consist of one or more __strings__ and/or __eval-statements__ (inside __curly braces__ '__{}__'). Eval-statements get evaluated on update. All eval-statements and strings of a property description get concatenated to a single string, that is passed to the native SVG attribute finaly.
 
 The __dollar sign__ '__$__' gives access to predefined values. Userdefined values and functions can be assigned to '$' before or during an update. The property-accessor point '__$.prop__' gets added on the compilation of a vlexpression.
 
-All properties and functions of Javascripts '__Math__' are available just by calling the�r name (e.g. 'min()','max()','PI',...)
+All properties and functions of Javascripts '__Math__' are available just by calling their name (e.g. 'min()','max()','PI',...)
 
 | Parameter   | Type        | Description  |
 :-- | :-- | :--
-| force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them recompiled (e.g. after changing a vlexpressions or after adding an new node with a vlexpressions)|
+| force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them recompiled (e.g. after changing a vlexpression or after adding an new node with a vlexpression)|
 
 ##### $
 
@@ -169,9 +169,9 @@ d		<-- eval("M100,"+($.cY)+" Q"+(Math.max(100,$.cX-200))+",200 "+($.cX)+","+($.c
 
 ### more About
 
-You may ask what usecase I had in mind for VLEX? In general it is to build cross-device UIs (especially for webmapping-apps). VLEX should make a single SVG UI overlay work on fullHD screens, tablets and smartphones. A task for example is to shrink buttons and to reduce space between them, but keep them at a minimum of 40px and avoid overlaps.
+You may ask, what usecase I had in mind for VLEX? For me it is to build cross-device UIs (especially for webmapping-apps). VLEX should make a single SVG UI overlay work on fullHD screens, tablets and smartphones. A task for example is to shrink buttons and to reduce space between them, but keep them at a minimum of 40px and avoid overlaps.
 
-And I�m not the only one recognizing a need for tese things (http://lists.w3.org/Archives/Public/www-svg/2013Oct/0003.html). After reading this discussion I realized that probably not even the long-awaited SVG2 will have the layout possibilities I desire.
+And I´m not the only one recognizing a need for these things (http://lists.w3.org/Archives/Public/www-svg/2013Oct/0003.html). After reading this discussion I realized, that probably not even the long-awaited [SVG2](http://www.w3.org/TR/2012/WD-SVG2-20120828/single-page.html) will have the layout possibilities I desire.
 
 
 
