@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>VLEX</title>
+    <script src="../../vlex.min.js"></script>
+    <link href="../styles/examples.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="vlexContainer" >
+        <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" onload="VLEX(vlex)">
+
+            <polygon class="vlexFill" vlex="points:50,{$cY},{max(300,$cX-100)},{$cY-100},{$cX},{$cY},{max(300,$cX-100)},{$cY+100}"></polygon>
+
+            <desc id="desc">
+                VLEXAMPLE - BASIC 5
+
+                <code>vlex="points:50,{$cY},{max(300,$cX-100)},{$cY-100},{$cX},{$cY},{max(300,$cX-100)},{$cY+100}"</code>
+
+                - the gray polygone should be centered vertically at stage
+                - point 1 should be 50px from stage´s left edge
+                - point 3 should be at stage´s center
+                - point 2 and 4 should be 100px above/below and left from stage´s center 100px
+                - point 2 and 4 should be at least 300px from stage´s left edge
+            </desc>
+
+             <g class="ruler">
+                 <line y1="0" vlex="x1:{$cX};x2:{$cX};y2:{$y}"></line>
+                 <line x1="0" vlex="x2:{$x};y1:{$cY};y2:{$cY}"></line>
+                 <line x1="300" x2="300" y1="0" vlex="y2:{$y}"></line>
+                 <line y1="0" vlex="x1:{$cX-100};x2:{$cX-100};y2:{$y}"></line>
+             </g>
+
+</svg>
+    </div>
+    <img id="logo" src="../styles/logo.png" />
+    <img id="resize" src="../styles/resize.png" />
+    <pre id="pre">        
+    <script>
+        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
+    </script>
+     </pre>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>VLEX</title>
+    <script src="../../vlex.min.js"></script>
+    <link href="../styles/examples.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="vlexContainer">
+        <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" onload="VLEX(vlex)">
+
+            <path class="vlexStroke" vlex="d:M100,{$cY} Q{max(100,$cX-200)},200 {$cX},{$cY} T{$x-100},{$cY}"></path>
+
+            <desc id="desc">
+                VLEXAMPLE - BASIC 6
+
+                <code>vlex="d:M100,{$cY} Q{max(100,$cX-300)},200 {$cX},{$cY} T{$x-100},{$cY}"</code>
+
+                - the gray path should be centered vertically at stage
+                - it should form a wave around stage´s center
+                - it should strech between stage´s left and right edge with a gap of 100px
+            </desc>
+
+            <g class="ruler">
+                <line y1="0" vlex="x1:{$cX};x2:{$cX};y2:{$y}"></line>
+                <line x1="0" vlex="x2:{$x};y1:{$cY};y2:{$cY}"></line>
+                <line x1="0" y1="200" y2="200" vlex="x2:{$x}"></line>
+                <line x1="0" vlex="x2:{$x};y1:{$y-200};y2:{$y-200}"></line>
+                <line y1="0" x1="100" x2="100" vlex="y2:{$y}"></line>
+                <line y1="0" vlex="x1:{$x-100};x2:{$x-100};y2:{$y}"></line>
+                <path vlex="d:M100,{$cY} L{max(100,$cX-200)},200 L{min($x-100,$cX+200)},{$y-200} {$x-100},{$cY}"></path>
+            </g>
+
+
+        </svg>
+    </div>
+    <img id="logo" src="../styles/logo.png" />
+    <img id="resize" src="../styles/resize.png" />
+    <pre id="pre">        
+    <script>
+        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
+    </script>
+     </pre>
+</body>
+</html>

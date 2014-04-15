@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>VLEX</title>
+    <script src="../../vlex.min.js"></script>
+    <link href="../styles/examples.css" rel="stylesheet" />
+    <script>
+
+        function init() {
+
+            // get VLEX´s update function
+            var update = VLEX(vlex, { onresize: false })
+
+            var i = 0
+
+            var timeUpdate = function () {
+                i = ++i % 60;
+                // update the custom variable
+                VLEX.$.perc = i / 60;
+                // call VLEX´s update function
+                update();
+                setTimeout(timeUpdate, 1000);
+            }
+
+            timeUpdate();
+        }
+
+    </script>
+</head>
+<body onload="init()">
+    <div id="vlexContainer">
+        <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+
+            <circle class="vlexStroke" vlex="r:{$r=max(100,min(200,$y/4,$x/4))};cx:{$cX};cy:{$cY};stroke-dasharray:{$l = PI*$r*2};stroke-dashoffset:{$l-$l*$perc}"></circle>
+
+            <desc id="desc">
+                VLEXAMPLE - ADVANCED 4
+
+                <code>vlex="r:{$r=max(100,min(200,$y/4,$x/4))};cx:{$cX};cy:{$cY};stroke-dasharray:{$l = PI*$r*2};stroke-dashoffset:{$l-$l*$perc}""</code>
+
+                - VLEX´s update function is called from a custom user-defined timer
+                - the custom user-defined $perc variable is updated in the timer
+                - the layout variables are evaluated only once at startuo
+                - resizing the stage doesn´t change the layout
+            </desc>
+
+            <g class="ruler">
+                <line x1="0" vlex="x2:{$x};y1:{$cY};y2:{$cY}"></line>
+                <line y1="0" vlex="y2:{$y};x1:{$cX};x2:{$cX}"></line>
+                <circle vlex="r:{$r};cx:{$cX};cy:{$cY}"><circle>
+            </g>
+
+        </svg>
+    </div>
+    <img id="logo" src="../styles/logo.png" />
+    <img id="resize" src="../styles/resize.png" />
+    <pre id="pre">        
+    <script>
+        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
+    </script>
+     </pre>
+</body>
+</html>

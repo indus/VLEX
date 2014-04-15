@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>VLEX</title>
+    <script src="../../vlex.min.js"></script>
+    <link href="../styles/examples.css" rel="stylesheet" />
+    <script>
+
+        // the custom zigZag Funtion used to get the point-string
+        VLEX.$.zigZag = function (x, cY, zigZagCount) {
+
+            var pointArr = [], xDelta = (x - 200) / zigZagCount;
+
+            for (var i = 0,x_; i <= zigZagCount; i++) {
+                x_ = 100 + i * xDelta
+                pointArr.push(x_, cY - 100, x_, cY + 100)
+            }
+
+            return pointArr.join(',')
+        }
+    </script>
+</head>
+<body>
+    <div id="vlexContainer" >
+        <svg id="vlex" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" onload="VLEX(vlex)">
+
+            <polyline class="vlexStroke" vlex="points:{$zigZag($x,$cY,10)}"></polyline>
+
+            <desc id="desc">
+                VLEXAMPLE - ADVANCED 3
+
+                <code>vlex="points:{$zigZag($x,$cY,10)}"</code>
+
+                - "$zigZag" is a custum function userdefined on VLEX.$; it returns a point-string of a zigzag-line
+            </desc>
+
+            <g class="ruler">
+                <line x1="0" vlex="x2:{$x};y1:{$cY};y2:{$cY}"></line>
+                <line x1="0" vlex="x2:{$x};y1:{$cY-100};y2:{$cY-100}"></line>
+                <line x1="0" vlex="x2:{$x};y1:{$cY+100};y2:{$cY+100}"></line>
+                <line y1="0" vlex="x1:{100};x2:{100};y2:{$y}"></line>
+                <line y1="0" vlex="x1:{$x-100};x2:{$x-100};y2:{$y}"></line>
+            </g>
+
+        </svg>
+    </div>
+    <img id="logo" src="../styles/logo.png" />
+    <img id="resize" src="../styles/resize.png" />
+    <pre id="pre">        
+    <script>
+        document.getElementById("pre").innerHTML = document.getElementById("desc").innerHTML
+    </script>
+     </pre>
+</body>
+</html>
