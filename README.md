@@ -2,7 +2,7 @@ VLEX
 ====
 
 Vector Layout Expressions
-![logo](https://github.com/indus/VLEX/loho.png)
+![logo](https://github.com/indus/VLEX/footage/logo.png)
 
 
 VLEXamples
