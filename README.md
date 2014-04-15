@@ -36,7 +36,7 @@ The most simple way to use VLEX:
 1. [circle centered](http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/1_circle.html)
 2. [circle centered with dynamic radius](http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/2_circleDynamicRadius.html)
 3. [circle centered with dynamic minmax radius](http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/3_circleDynamicMinMaxRadius.html)
-4. [partial stage](http://rawgit.com/indus/VLEX/master/vlexamples/4_circleDynamicMinMaxRadiusHalf.html)
+4. [partial stage](http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/4_circleDynamicMinMaxRadiusHalf.html)
 5. [polygon](http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/5_polygon.html)
 6. [path](http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/6_path.html)
 7. [complex](http://rawgit.com/indus/VLEX/master/vlexamples/1_basic/7_complex.html)
