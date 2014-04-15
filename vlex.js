@@ -1,10 +1,9 @@
 ﻿/*!
  * VLEX Vector Layout Expressions v0.1
- * http://jquery.com/
  *
  * Copyright 2014 Stefan Keim (indus)
  * Released under the MIT license
- * http://github/license
+ * https://github.com/indus/VLEX/blob/master/license.md
  *
  * Date: 2014-04-15
  */
