@@ -49,12 +49,12 @@ The most simple way to use VLEX:
 the main function of VLEX. Call it to init VLEX
 
 | Parameter   | Type        | Description  |
-:-- | :- | :--
+:-- | :-- | :--
 | element     | DOM-Node, ID-String or null | Pass a DOM-Node or its ID-String to start VLEX. Pass *null* to stop VLEX |
 | options     | Object      |  pass a options object to change VLEXs behaviour |
 
 | Option   | Type        | Default  | Description  |
-:-- | :- | :--
+:-- | :-- | :--
 | onresize		| Boolean	| true		|  auto-update on resize-event |
 | onmousemove	| Boolean	| false		|  auto-update on mousemove-event  |
 | $				| Object	| undefined	|  properties of *$* are available in vlexpressions via dollar-sign|
@@ -64,7 +64,7 @@ the main function of VLEX. Call it to init VLEX
 the main function of VLEX returns a update-function. Call it to trigger a update
 
 | Parameter   | Type        | Description  |
-:-- | :- | :--
+:-- | :-- | :--
 | force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them reevaluated (e.g. after changing a expresssion or after adding an new node with a vlexpressions)|
 
 
@@ -76,11 +76,11 @@ The dollarSign '$' gives access to predefined values. Userdefined values and fun
 All properties and functions of Javascripts 'Math' are available just py calling theír name (e.g. 'min()','max()','PI',...)
 
 | Parameter   | Type        | Description  |
-:-- | :- | :--
+:-- | :-- | :--
 | force     | Boolean | the vlexpressions are cached. So you have to pass *true* if you want to have them recompiled (e.g. after changing a vlexpressions or after adding an new node with a vlexpressions)|
 
 | $param   | Default  | Description  |
-:-- | :- | :--
+:-- | :-- | :--
 | $x,$y    | element.clientWidth, element.clientHeight | normaly the with/height of the outermost svg |
 | $cX,$cY      | $x/2, $y/2 | the horizontal/vertical center |
 | $mX, $mY     | -99999 | the mouseposition; gets updated if onmouse is set *true* in options |
@@ -117,14 +117,14 @@ r		<-- eval(""+($.x/2)+"") // 200
 
 vlex="r:200;cx:{$cX};cy:{floor(2.3)*100}"
 >>>
-r		<-- eval("200") // 200 vlex.js:154
-cx		<-- eval(""+($.cX)+"") // 200 vlex.js:154
+r		<-- eval("200") // 200
+cx		<-- eval(""+($.cX)+"") // 200
 cy		<-- eval(""+(Math.floor(2.3)*100)+"") // 200 
 
 vlex="r:{$custom = $x/4};cx:{$cX};cy:{$custom}"
 >>>
-r		<-- eval(""+($.custom = $.x/4)+"") // 100 vlex.js:154
-cx		<-- eval(""+($.cX)+"") // 200 vlex.js:154
+r		<-- eval(""+($.custom = $.x/4)+"") // 100
+cx		<-- eval(""+($.cX)+"") // 200
 cy		<-- eval(""+($.custom)+"") // 100 
 
 vlex="points:0,100,{$cX},{$cY+100}"
