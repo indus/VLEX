@@ -54,6 +54,10 @@ The most simple way to use VLEX:
 3. [ellipse size](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/3_ellipse.html)
 4. [circle stroke](http://rawgit.com/indus/VLEX/master/vlexamples/3_mouse/4_circleStrokeDash.html)
 
+#### 4. Showcase
+(you are welcome to contribute)
+1. [tribute](http://rawgit.com/indus/VLEX/master/vlexamples/4_showcase/tribute.html)
+
 None of these examples is usefull per se. If you are interested to vlex something usefull, you should read the upcoming API or just the comented source code (almost equal size ;-).
 If you are interested in some backgrounds, have a look down at the end of this page.
 
